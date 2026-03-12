@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Dashboard</title>
+  <!-- Link to external CSS file -->
+  <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+  <div class="container">
+    <h2>User Profile</h2>
+    
+    <!-- Error box for form validation messages -->
+    <div id="errorBox"></div>
+    
+    <form id="profileForm">
+      <label>Name:</label>
+      <input type="text" id="name" />
+      
+      <label>Email:</label>
+      <input type="text" id="email" />
+      
+      <label>Favorite Color:</label>
+      <input type="text" id="color" />
+      
+      <button type="submit">Update Profile</button>
+    </form>
+    
+    <h3>Profile Data</h3>
+    <div id="profileDisplay"></div>
+
+    <hr>
+
+    <h2>To-Do List</h2>
+    <div class="todo-buttons">
+      <input type="text" id="taskInput" placeholder="New Task..." />
+      <button onclick="handleAddTask()">Add Task</button>
+      <button onclick="sortTasksByTime()">Sort by Time</button>
+    </div>
+    <ul id="taskList"></ul>
+
+    <hr>
+
+    <h2>Fetched Users</h2>
+    <!-- Button to fetch users -->
+    <button id="fetchBtn">View All Users</button>
+    
+    <!-- Container where user cards will be rendered -->
+    <div id="usersContainer"></div>
+  </div>
+
+  <!-- External JavaScript -->
+  <script src="dashboard_project.js"></script>
+</body>
+</html>

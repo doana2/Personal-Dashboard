@@ -1,0 +1,81 @@
+Project Title: Personal Dashboard with Express.js Back-End
+
+Author: Alex Doan  
+Date: July 22, 2025  
+Course: INFO 320 - Web Systems Development  
+Instructor: Professor Elena Olson 
+
+---
+
+Overview:
+---------
+This project is a full-stack personal dashboard web application featuring a front-end interface built with HTML, CSS, and JavaScript, and a Node.js/Express.js back-end deployed to AWS Elastic Beanstalk.
+
+Key Features:
+-------------
+✓ Profile management with form validation  
+✓ Interactive to-do list with localStorage persistence  
+✓ “View All Users” feature using external JSONPlaceholder API  
+✓ Responsive UI with hover tooltips and loading indicators  
+✓ RESTful Express API (`/api/items`) with GET and POST support  
+✓ Custom environment variable used with `process.env.GREETING`  
+✓ Deployed to AWS Elastic Beanstalk and integrated with back-end routes
+
+---
+
+Back-End Implementation:
+------------------------
+- Created an `Express.js` server with the following routes:
+  • `GET /api/items` – Returns a list of items
+  • `POST /api/items` – Adds a new item with name and description
+  • `GET /api/message` – Reads and returns a custom greeting using `process.env.GREETING`
+- Middleware used:
+  • `express.json()` for parsing JSON request bodies
+  • Custom request logger (logs all incoming requests)
+
+Environment Variables:
+----------------------
+- Configured using:
+  `eb setenv GREETING="Hello from your deployed app!"`
+- Accessible in the code via:  
+  `const greeting = process.env.GREETING || 'Hello from AWS Elastic Beanstalk!';`
+
+Deployment Instructions:
+-------------------------
+1. Initialize and configure your Elastic Beanstalk app:
+   ```
+   eb init
+   ```
+2. Create a new environment and deploy:
+   ```
+   eb create project3-env
+   eb setenv GREETING="Hello from AWS Elastic Beanstalk!"
+   eb deploy
+   eb open
+   ```
+
+3. Ensure the following:
+   • `start` script is defined in `package.json`: `"start": "node server.js"`  
+   • All dependencies (e.g., express) are listed in `package.json`
+
+Screenshots Included:
+---------------------
+✓ Terminal output of `eb deploy` and `eb setenv`  
+✓ Front-end interface running in browser  
+✓ Back-end JSON responses from `/api/items`
+
+---
+
+Notes:
+------
+- HTTPS is not enabled by default for Elastic Beanstalk; use HTTP or configure SSL manually.
+- If you see “Cannot GET /” or fetch errors locally, ensure your backend is running and accessible.
+- This app is designed to demonstrate full-stack integration and deployment using cloud services.
+
+---
+
+Live Link:
+----------
+http://project3-env.eba-kieqkzki.us-east-1.elasticbeanstalk.com
+
+Thank you!
